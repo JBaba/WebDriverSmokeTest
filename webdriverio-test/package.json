@@ -1,0 +1,26 @@
+{
+  "name": "smoketest",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.14.0",
+    "mocha": "^3.2.0",
+    "request": "^2.79.0",
+    "webdriverio": "^4.5.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "wdio-mocha-framework": "^0.5.7"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "author": "nviradia",
+  "license": "ISC"
+}
