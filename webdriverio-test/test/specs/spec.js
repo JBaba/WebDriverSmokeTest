@@ -36,10 +36,15 @@ describe('Impact', function() {
 	    	assert.equal(caseInfo, 'CASE INFO');
     	});
 
-    	it('Click on Others', function () {
-    	
-    	});
     });
+
+    it('Click on Others', function () {
+    		browser.click('#othersImage').waitForVisible('//div[@id="othersDiv_body"]', 5000);
+    		var e = browser.element('#BITOP').click('a*=Benefit Issuance').waitForVisible('//div[@id="subNavBITOP"]', 5000);
+    		console.log(e);
+    		//browser.click('a*=Benefit Issuance Search');
+    		browser.pause(5000);
+   	});
                
     openSearchUrl = function(opts) {
     	//https://ussltcsnw2654.solutions.glbsnet.com:9443/wp/SELoginAccess.jsp?fromIndex=true
