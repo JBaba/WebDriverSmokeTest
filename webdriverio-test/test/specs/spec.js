@@ -40,10 +40,14 @@ describe('Impact', function() {
 
     it('Click on Others', function () {
     		browser.click('#othersImage').waitForVisible('//div[@id="othersDiv_body"]', 5000);
-    		var e = browser.element('#BITOP').click('a*=Benefit Issuance').waitForVisible('//div[@id="subNavBITOP"]', 5000);
-    		console.log(e);
-    		//browser.click('a*=Benefit Issuance Search');
-    		browser.pause(5000);
+
+    		browser.execute(function() {
+        		// browser context - you may not access client or console
+		        document.getElementById('othersDiv_body').scrollTop += 60;
+		    });
+
+    		browser.element('#BITOP').click('a*=Benefit Issuance').waitForVisible('//div[@id="subNavBITOP"]', 5000);
+    		browser.click('a*=Benefit Issuance Search').waitForVisible('//div[@class="Heading_1"]', 5000);;
    	});
                
     openSearchUrl = function(opts) {
