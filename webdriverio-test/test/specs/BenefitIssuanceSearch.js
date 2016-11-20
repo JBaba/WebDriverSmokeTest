@@ -6,7 +6,7 @@ chai.Should();
 chai.use(chaiAsPromised);
 chaiAsPromised.transferPromiseness = browser.transferPromiseness;
 
-describe('Impact', function() {
+describe('Benefit Issuance Search', function() {
 
     it('Login Page Title', function () {
         openSearchUrl({});
@@ -49,6 +49,11 @@ describe('Impact', function() {
     		browser.element('#BITOP').click('a*=Benefit Issuance').waitForVisible('//div[@id="subNavBITOP"]', 5000);
     		browser.click('a*=Benefit Issuance Search').waitForVisible('//div[@class="Heading_1"]', 5000);;
    	});
+
+   	it('Search Using Case Num', function () {
+    		browser.setValue('[name="iqCaseNumber"]','200023796');
+    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
+   	});
                
     openSearchUrl = function(opts) {
     	//https://ussltcsnw2654.solutions.glbsnet.com:9443/wp/SELoginAccess.jsp?fromIndex=true
@@ -57,49 +62,5 @@ describe('Impact', function() {
         console.log("Opening " + url);
         return browser.url(url);
     };
-    assert = require('assert');
-    sleep = function(ms) {
-        return function(done) {
-            setTimeout(done, ms);
-        }
-    };
-    getPath = function() {
-        var urlmodule = require("url");
-        return browser.url().then(function(res) {
-            return urlmodule.parse(res.value).path;
-        });
-    };
-    inspectElement = function(elt) {
-        var inspect = {};
-
-        // TODO: is there an easier way to do that?
-        return browser.elementIdName(elt.value.ELEMENT).then(function(res) {
-            inspect.tag = res.value;
-            return browser.elementIdText(elt.value.ELEMENT);
-        }).then(function(res) {
-            inspect.text = res.value;
-            return browser.elementIdLocation(elt.value.ELEMENT);
-        }).then(function(res) {
-            inspect.location = res.value;
-            console.log("Inspect: <" + inspect.tag + "> at ("+inspect.location.x+","+inspect.location.y+")");
-            return inspect;
-        })
-    };
-
-
-     printElement = function(ele) {
-        var selectedEle = {};
-        return browser.elementIdName(ele.value.ELEMENT).then(function(res) {
-            selectedEle.name = res.value;
-            return browser.elementIdAttribute(ele.value.ELEMENT,'id');
-        }).then(function(res) {
-            selectedEle.id = res.value;
-            var textId = '#'+selectedEle.id;
-            return browser.getValue(textId);
-        }).then(function(res) {
-            selectedEle.value = res;
-            console.log(selectedEle.name+" id:'"+selectedEle.id+"' value:'"+selectedEle.value+"'");
-            return selectedEle;
-        });
-    };
+    
 });
