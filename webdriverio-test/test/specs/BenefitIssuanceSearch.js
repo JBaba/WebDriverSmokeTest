@@ -54,6 +54,11 @@ describe('Benefit Issuance Search', function() {
     		browser.setValue('[name="iqCaseNumber"]','200023796');
     		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});
+
+   	it('Search Using Edg Num', function () {
+    		browser.setValue('[name="edgNumber"]','500058651');
+    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
+   	});
                
     openSearchUrl = function(opts) {
     	//https://ussltcsnw2654.solutions.glbsnet.com:9443/wp/SELoginAccess.jsp?fromIndex=true
