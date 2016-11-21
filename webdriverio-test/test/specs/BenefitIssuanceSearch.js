@@ -1,3 +1,4 @@
+var impact = require('./Common.js');
 var assert = require('assert');
 
 var chai = require('chai');
@@ -9,7 +10,7 @@ chaiAsPromised.transferPromiseness = browser.transferPromiseness;
 describe('Benefit Issuance Search', function() {
 
     it('Login Page Title', function () {
-        openSearchUrl({});
+        impact.openSearchUrl({});
         // get title
         var title = browser.getTitle();
         assert.equal(title, 'IE ImpaCT Website');
@@ -47,7 +48,7 @@ describe('Benefit Issuance Search', function() {
 		    });
 
     		browser.element('#BITOP').click('a*=Benefit Issuance').waitForVisible('//div[@id="subNavBITOP"]', 5000);
-    		browser.click('a*=Benefit Issuance Search').waitForVisible('//div[@class="Heading_1"]', 5000);;
+    		browser.click('a*=Benefit Issuance Search').waitForVisible('//div[@class="Heading_1"]', 5000);
    	});
 
    	it('Search Using Case Num', function () {
@@ -59,13 +60,5 @@ describe('Benefit Issuance Search', function() {
     		browser.setValue('[name="edgNumber"]','500058651');
     		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});
-               
-    openSearchUrl = function(opts) {
-    	//https://ussltcsnw2654.solutions.glbsnet.com:9443/wp/SELoginAccess.jsp?fromIndex=true
-    	//http://ussltcsnw2654.solutions.glbsnet.com:9088/wp/SELoginAccess.jsp
-        var url = "http://ussltcsnw2654.solutions.glbsnet.com:9088/wp/SELoginAccess.jsp?fromIndex=true";
-        console.log("Opening " + url);
-        return browser.url(url);
-    };
     
 });
