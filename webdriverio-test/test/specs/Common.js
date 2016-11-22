@@ -41,7 +41,8 @@ module.exports = {
 
 	openFirstMenu : function(opts) {
 		browser.click('#othersImage').waitForVisible('//div[@id="othersDiv_body"]', 1000);
-		browser.element('#BITOP').click('a*=Benefit Issuance').waitForVisible('//div[@id="subNavBITOP"]', 5000);
-    	browser.click('a*=Benefit Issuance Search').waitForVisible('h2*=Issuance Date Range', 5000);
+		browser.element(opts[1]).click('a*='+opts[2]).waitForVisible('//div[@id="subNavBITOP"]', 5000);
+    	browser.click('a*='+opts[3]).pause(2000);
+    	browser.waitForVisible(opts[4], 5000);
 	}
 };

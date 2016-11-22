@@ -56,8 +56,11 @@ describe('Benefit Issuance Search', function() {
     		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});
 
+   	var opts = { 1 : "#BITOP", 2 : "Benefit Issuance", 
+   		 	     3 : "Benefit Issuance Search", 4 : "h2*=Issuance Date Range"};
+
    	it('Search Using Edg Num', function () {
-   			impact.openFirstMenu({});
+   			impact.openFirstMenu(opts);
     		browser.setValue('[name="edgNumber"]','500058651');
     		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});
