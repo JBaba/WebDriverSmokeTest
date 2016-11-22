@@ -44,7 +44,8 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'firefox'
+        browserName: 'firefox',
+        firefox_binary: 'C:\\Program Files\\Nightly\\firefox.exe'
     }],
     //
     // ===================

@@ -57,6 +57,7 @@ describe('Benefit Issuance Search', function() {
    	});
 
    	it('Search Using Edg Num', function () {
+   			impact.openFirstMenu({});
     		browser.setValue('[name="edgNumber"]','500058651');
     		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});

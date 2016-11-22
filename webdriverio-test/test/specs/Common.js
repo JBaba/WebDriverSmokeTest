@@ -37,6 +37,11 @@ module.exports = {
 	    var url = "http://ussltcsnw2654.solutions.glbsnet.com:9088/wp/SELoginAccess.jsp?fromIndex=true";
 	    console.log("Opening " + url);
 	    return browser.url(url);
-	}
+	},
 
+	openFirstMenu : function(opts) {
+		browser.click('#othersImage').waitForVisible('//div[@id="othersDiv_body"]', 1000);
+		browser.element('#BITOP').click('a*=Benefit Issuance').waitForVisible('//div[@id="subNavBITOP"]', 5000);
+    	browser.click('a*=Benefit Issuance Search').waitForVisible('h2*=Issuance Date Range', 5000);
+	}
 };
