@@ -9,6 +9,7 @@ chaiAsPromised.transferPromiseness = browser.transferPromiseness;
 
 describe('Benefit Issuance Search', function() {
 
+
     it('Login Page Title', function () {
         impact.openSearchUrl({});
         // get title
@@ -56,45 +57,60 @@ describe('Benefit Issuance Search', function() {
     		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});
 
+
    	var opts = { 1 : "#BITOP", 2 : "Benefit Issuance", 
    		 	     3 : "Benefit Issuance Search", 4 : "h2*=Issuance Date Range"};
 
-   	it('Search Using Edg Num', function () {
+   	xit('Search Using Edg Num', function () {
    			impact.openFirstMenu(opts);
     		browser.setValue('[name="edgNumber"]','500058651');
     		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});
 
-   	it('Search Using Client Id', function () {
+   	xit('Search Using Client Id', function () {
    			impact.openFirstMenu(opts);
     		browser.setValue('[name="clientId"]','501155211');
     		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});
 
-   	it('Search Using Provider Id', function () {
+   	// Provider Id Validation ===================================================================
+
+   	xit('Provider Validation', function () {
+
+	   	it('Search Using Provider Id', function () {
    			impact.openFirstMenu(opts);
     		browser.setValue('[name="providerId"]','900847567');
-    		var status = browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
-    		console.log(status);
-   	});
+    		browser.setValue('[name="yearissuanceDateFrom"]','2000');
+    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
+	   	});
 
-   	it('Search Using Provider Id with No Results', function () {
+	   	it('Search Using Provider Id with No Results', function () {
    			impact.openFirstMenu(opts);
     		browser.setValue('[name="providerId"]','900847567');
     		browser.click('#button2').pause(3000);
     		browser.waitForVisible('span*=BV087:', 5000);
+	   	});
+
+    });
+
+   	xit('Search Using Vendor Id', function () {
+		impact.openFirstMenu(opts);
+		browser.setValue('[name="vendorID1"]','1017517');
+		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});
 
-   	it('Search Using Vendor Id', function () {
-   			impact.openFirstMenu(opts);
-    		browser.setValue('[name="vendorID1"]','1017517');
-    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
-   	});
-
-   	it('Search Using Issuance Number', function () {
-   			impact.openFirstMenu(opts);
-    		browser.setValue('[name="biIssuanceIssuance"]','040028980');
-    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
+   	xit('Search Using Issuance Number', function () {
+		impact.openFirstMenu(opts);
+		browser.setValue('[name="biIssuanceIssuance"]','040028980');
+		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
    	});
     
+	// Error Validation for Issuance Status =====================================================
+	it('Error if only Issuance Status selected', function () {
+		impact.openFirstMenu(opts);
+		browser.element('#issuanceStatus').selectByValue('DC');
+		browser.click('#button2').pause(1000);
+		browser.waitForVisible('span*=BI103:', 5000);
+	});
+
 });

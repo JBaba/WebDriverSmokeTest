@@ -16,7 +16,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "wdio-mocha-framework": "^0.5.7"
+    "wdio-mocha-framework": "^0.5.7",
+    "wdio-spec-reporter": "0.0.5"
   },
   "scripts": {
     "test": "mocha --reporter spec"
