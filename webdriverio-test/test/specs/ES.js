@@ -9,12 +9,38 @@ chaiAsPromised.transferPromiseness = browser.transferPromiseness;
 
 describe('Essential Services', function() {
 
-	// Error Validation for Issuance Status =====================================================
-	it('Error if only Issuance Status selected', function () {
-		impact.openFirstMenu(opts);
-		browser.element('#issuanceStatus').selectByValue('DC');
-		browser.click('#button2').pause(1000);
-		browser.waitForVisible('span*=BI103:', 5000);
+  var opts = { 1 : "#BITOP", 2 : "Benefit Issuance", 
+               3 : "Essential Services", 4 : "#leftNavBIEPS"};
+
+	it('Login', function () {
+      impact.openSearchUrl({});
+  		impact.loginToImpact();
+      impact.openFirstMenu(opts);
 	});
+
+  it('Essential Services Payment Search', function () {
+      it('Case Number', function () {
+          browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
+          browser.setValue('[name="caseNumberHash"]','100002229');
+          browser.setValue('[name="yearstartDateofService"]','2000');
+          browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
+      });
+
+      it('Edg Number', function () {
+          browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
+          browser.setValue('[name="edgNumber"]','500034979');
+          browser.setValue('[name="yearstartDateofService"]','2000');
+          browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
+      });
+
+      it('Vendor Id', function () {
+          browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
+          browser.setValue('[name="vendorID1"]','1016321');
+          browser.setValue('[name="yearstartDateofService"]','2000');
+          browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
+      });
+  });
+
+ 
 
 });

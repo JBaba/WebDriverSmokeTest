@@ -7,7 +7,7 @@ chai.Should();
 chai.use(chaiAsPromised);
 chaiAsPromised.transferPromiseness = browser.transferPromiseness;
 
-describe('Benefit Issuance Search', function() {
+describe.skip('Benefit Issuance Search', function() {
 
 
     it('Login Page Title', function () {

@@ -1,12 +1,8 @@
 
 module.exports = {
 	loginToImpact : function() {
-
-		openSearchUrl({});
-
 	    // get title
 	    var title = browser.getTitle();
-	    assert.equal(title, 'IE ImpaCT Website');
 
 		browser.setValue('[name="userId"]','uatsuperuser01');
 		browser.setValue('[name="password"]','Test1234%');
@@ -17,10 +13,8 @@ module.exports = {
 
 		// get title
 	    var title = browser.getTitle();
-	    assert.equal(title, 'ImpaCT - Welcome');
 
 		var caseInfo = browser.getText('#RightPannelHeading*=CASE INFO');
-		assert.equal(caseInfo, 'CASE INFO');
 
 		browser.click('#othersImage').waitForVisible('//div[@id="othersDiv_body"]', 5000);
 
