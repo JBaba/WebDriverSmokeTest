@@ -34,23 +34,29 @@ describe('Essential Services', function() {
           browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
       });
 
-      it('Vendor Id', function () {
-          impact.openFirstMenu(opts);
-          browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
-          browser.setValue('[name="vendorID1"]','1016321');
-          browser.setValue('[name="yearstartDateofService"]','2000');
-          browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
+      describe('Vendor Id Validations', function() {
+          it('Vendor Id With Records', function () {
+              impact.openFirstMenu(opts);
+              browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
+              browser.setValue('[name="vendorID1"]','1016321');
+              browser.setValue('[name="yearstartDateofService"]','2000');
+              browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
+          });
+
+          it('Vendor Id Without Records', function () {
+              impact.openFirstMenu(opts);
+              browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
+              browser.setValue('[name="vendorID1"]','1016321');
+              browser.element('#essentialServiceProgram').selectByValue('CO');
+              browser.setValue('[name="yearstartDateofService"]','2000');
+              browser.click('#button').waitForVisible('span*=BV087:', 5000);
+          });
       });
+
   });
 
   describe('Essential Services', function() {
-      it('Vendor Id', function () {
-          impact.openFirstMenu(opts);
-          browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
-          browser.setValue('[name="vendorID1"]','1016321');
-          browser.setValue('[name="yearstartDateofService"]','2000');
-          browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
-      });
+
   }); 
 
 });
