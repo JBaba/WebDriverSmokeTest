@@ -10,13 +10,13 @@ chaiAsPromised.transferPromiseness = browser.transferPromiseness;
 
 describe('Essential Services', function() {
 
-	it('Login', function () {
+	xit('Login', function () {
       impact.openSearchUrl({});
   		impact.loginToImpact();
       impact.openFirstMenu(def.es);
 	});
 
-  describe('Essential Services Payment Search', function () {
+  describe.skip('Essential Services Payment Search', function () {
       it('Case Number', function () {
           browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
           browser.setValue('[name="caseNumberHash"]','100002229');
@@ -54,7 +54,8 @@ describe('Essential Services', function() {
   });
 
   describe('Essential Services', function() {
-
+    console.log(def.es);
+    console.log(def.es[1]);
   }); 
 
 });
