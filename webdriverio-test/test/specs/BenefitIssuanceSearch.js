@@ -1,4 +1,5 @@
 var impact = require('./Common.js');
+var def = require('./Definations.js');
 var assert = require('assert');
 
 var chai = require('chai');
@@ -59,19 +60,16 @@ describe.skip('Benefit Issuance Search', function() {
 
    	});
 
-   	var opts = { 1 : "#BITOP", 2 : "Benefit Issuance", 
-   		 	     3 : "Benefit Issuance Search", 4 : "h2*=Issuance Date Range"};
-
    	describe('Search', function() {
 
 	   	it('Search Using Edg Num', function () {
-	   			impact.openFirstMenu(opts);
+	   			impact.openFirstMenu(def.bis());
 	    		browser.setValue('[name="edgNumber"]','500058651');
 	    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 	   	});
 
 	   	it('Search Using Client Id', function () {
-	   			impact.openFirstMenu(opts);
+	   			impact.openFirstMenu(def.bis());
 	    		browser.setValue('[name="clientId"]','501155211');
 	    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 	   	});
@@ -81,14 +79,14 @@ describe.skip('Benefit Issuance Search', function() {
 	   	describe('Provider Validation', function () {
 
 		   	it('Search Using Provider Id', function () {
-	   			impact.openFirstMenu(opts);
+	   			impact.openFirstMenu(def.bis());
 	    		browser.setValue('[name="providerId"]','900847567');
 	    		browser.setValue('[name="yearissuanceDateFrom"]','2000');
 	    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 		   	});
 
 		   	it('Search Using Provider Id with No Results', function () {
-	   			impact.openFirstMenu(opts);
+	   			impact.openFirstMenu(def.bis());
 	    		browser.setValue('[name="providerId"]','900847567');
 	    		browser.click('#button2').pause(3000);
 	    		browser.waitForVisible('span*=BV087:', 5000);
@@ -97,13 +95,13 @@ describe.skip('Benefit Issuance Search', function() {
 	    });
 
 	   	it('Search Using Vendor Id', function () {
-			impact.openFirstMenu(opts);
+			impact.openFirstMenu(def.bis());
 			browser.setValue('[name="vendorID1"]','1017517');
 			browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 	   	});
 
 	   	it('Search Using Issuance Number', function () {
-			impact.openFirstMenu(opts);
+			impact.openFirstMenu(def.bis());
 			browser.setValue('[name="biIssuanceIssuance"]','040028980');
 			browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 	   	});
@@ -112,7 +110,7 @@ describe.skip('Benefit Issuance Search', function() {
     
 	// Error Validation for Issuance Status =====================================================
 	it('Error if only Issuance Status selected', function () {
-		impact.openFirstMenu(opts);
+		impact.openFirstMenu(def.bis());
 		browser.element('#issuanceStatus').selectByValue('DC');
 		browser.click('#button2').pause(1000);
 		browser.waitForVisible('span*=BI103:', 5000);
