@@ -54,7 +54,7 @@ describe.skip('Benefit Issuance Search', function() {
 	   	});
 
 	   	it('Search Using Case Num', function () {
-	    		browser.setValue('[name="iqCaseNumber"]','200023796');
+	    		browser.setValue('[name="iqCaseNumber"]',def.bis().case);
 	    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 	   	});
 
@@ -64,13 +64,13 @@ describe.skip('Benefit Issuance Search', function() {
 
 	   	it('Search Using Edg Num', function () {
 	   			impact.openFirstMenu(def.bis());
-	    		browser.setValue('[name="edgNumber"]','500058651');
+	    		browser.setValue('[name="edgNumber"]',def.bis().edg);
 	    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 	   	});
 
 	   	it('Search Using Client Id', function () {
 	   			impact.openFirstMenu(def.bis());
-	    		browser.setValue('[name="clientId"]','501155211');
+	    		browser.setValue('[name="clientId"]',def.bis().edg);
 	    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 	   	});
 
@@ -80,14 +80,14 @@ describe.skip('Benefit Issuance Search', function() {
 
 		   	it('Search Using Provider Id', function () {
 	   			impact.openFirstMenu(def.bis());
-	    		browser.setValue('[name="providerId"]','900847567');
+	    		browser.setValue('[name="providerId"]',def.bis().provider);
 	    		browser.setValue('[name="yearissuanceDateFrom"]','2000');
 	    		browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 		   	});
 
 		   	it('Search Using Provider Id with No Results', function () {
 	   			impact.openFirstMenu(def.bis());
-	    		browser.setValue('[name="providerId"]','900847567');
+	    		browser.setValue('[name="providerId"]',def.bis().provider);
 	    		browser.click('#button2').pause(3000);
 	    		browser.waitForVisible('span*=BV087:', 5000);
 		   	});
@@ -96,13 +96,13 @@ describe.skip('Benefit Issuance Search', function() {
 
 	   	it('Search Using Vendor Id', function () {
 			impact.openFirstMenu(def.bis());
-			browser.setValue('[name="vendorID1"]','1017517');
+			browser.setValue('[name="vendorID1"]',def.bis().vendor);
 			browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 	   	});
 
 	   	it('Search Using Issuance Number', function () {
 			impact.openFirstMenu(def.bis());
-			browser.setValue('[name="biIssuanceIssuance"]','040028980');
+			browser.setValue('[name="biIssuanceIssuance"]',def.bis().inum);
 			browser.click('#button2').waitForVisible('h2*=SEARCH RESULTS', 5000);
 	   	});
 

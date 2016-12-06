@@ -19,7 +19,7 @@ describe('Essential Services', function() {
   describe('Essential Services Payment Search', function () {
       it('Case Number', function () {
           browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
-          browser.setValue('[name="caseNumberHash"]','100002229');
+          browser.setValue('[name="caseNumberHash"]',def.es().case);
           browser.setValue('[name="yearstartDateofService"]','2000');
           browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
       });
@@ -27,7 +27,8 @@ describe('Essential Services', function() {
       it('Edg Number', function () {
           impact.openFirstMenu(def.es());
           browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
-          browser.setValue('[name="edgNumber"]','500034979');
+          browser.pause(1000);
+          browser.setValue('[name="edgNumber"]',def.es().edg);
           browser.setValue('[name="yearstartDateofService"]','2000');
           browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
       });
@@ -36,7 +37,8 @@ describe('Essential Services', function() {
           it('Vendor Id With Records', function () {
               impact.openFirstMenu(def.es());
               browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
-              browser.setValue('[name="vendorID1"]','1016321');
+              browser.pause(1000);
+              browser.setValue('[name="vendorID1"]',def.es().vendor);
               browser.setValue('[name="yearstartDateofService"]','2000');
               browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
           });
@@ -44,7 +46,8 @@ describe('Essential Services', function() {
           it('Vendor Id Without Records', function () {
               impact.openFirstMenu(def.es());
               browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
-              browser.setValue('[name="vendorID1"]','1016321');
+              browser.pause(1000);
+              browser.setValue('[name="vendorID1"]',def.es().vendor);
               browser.element('#essentialServiceProgram').selectByValue('CO');
               browser.setValue('[name="yearstartDateofService"]','2000');
               browser.click('#button').waitForVisible('span*=BV087:', 5000);
