@@ -26,8 +26,6 @@ module.exports = {
 	},
 
 	openSearchUrl : function(opts) {
-		//https://ussltcsnw2654.solutions.glbsnet.com:9443/wp/SELoginAccess.jsp?fromIndex=true
-		//http://ussltcsnw2654.solutions.glbsnet.com:9088/wp/SELoginAccess.jsp
 	    var url = "http://ussltcsnw2654.solutions.glbsnet.com:9088/wp/SELoginAccess.jsp?fromIndex=true";
 	    console.log("Opening " + url);
 	    return browser.url(url);
