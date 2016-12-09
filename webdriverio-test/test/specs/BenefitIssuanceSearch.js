@@ -19,8 +19,8 @@ describe.skip('Benefit Issuance Search', function() {
 	    });
 
 	    it('Login into Impact', function () {
-	    	browser.setValue('[name="userId"]','uatsuperuser01');
-	    	browser.setValue('[name="password"]','Test1234%');
+	    	browser.setValue('[name="userId"]',def.login().user);
+	    	browser.setValue('[name="password"]',def.login().pass);
 	    	browser.click('.LoginButton');
 	    });
 

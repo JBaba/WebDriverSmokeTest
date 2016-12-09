@@ -1,11 +1,12 @@
+var def = require('./Definations.js');
 
 module.exports = {
 	loginToImpact : function() {
 	    // get title
 	    var title = browser.getTitle();
 
-		browser.setValue('[name="userId"]','uatsuperuser01');
-		browser.setValue('[name="password"]','Test1234%');
+		browser.setValue('[name="userId"]',def.login().user);
+		browser.setValue('[name="password"]',def.login().pass);
 		browser.click('.LoginButton');
 
 		// wait till page opens
@@ -26,9 +27,8 @@ module.exports = {
 	},
 
 	openSearchUrl : function(opts) {
-	    var url = "http://ussltcsnw2654.solutions.glbsnet.com:9088/wp/SELoginAccess.jsp?fromIndex=true";
-	    console.log("Opening " + url);
-	    return browser.url(url);
+	    console.log("Opening " + def.login().url);
+	    return browser.url(def.login().url);
 	},
 
 	openFirstMenu : function(opts) {
