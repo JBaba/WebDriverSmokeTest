@@ -21,7 +21,7 @@ module.exports = {
 
 		browser.execute(function() {
 			// browser context - you may not access client or console
-	        document.getElementById('othersDiv_body').scrollTop += 60;
+	        document.getElementById('othersDiv_body').scrollTop += 80;
 	    });
 
 	},

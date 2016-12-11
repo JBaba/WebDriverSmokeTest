@@ -17,14 +17,14 @@ describe('Essential Services', function() {
 	});
 
   describe('Essential Services Payment Search', function () {
-      it('Case Number', function () {
+      xit('Case Number', function () {
           browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
           browser.setValue('[name="caseNumberHash"]',def.es().case);
           browser.setValue('[name="yearstartDateofService"]','2000');
           browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
       });
 
-      it('Edg Number', function () {
+      xit('Edg Number', function () {
           impact.openFirstMenu(def.es());
           browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
           browser.pause(1000);
@@ -43,7 +43,17 @@ describe('Essential Services', function() {
               browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
           });
 
-          it('Vendor Id Without Records', function () {
+          it('Vendor Id Dyna', function () {
+              var dynaRows = $("#grid0").$$("tr");
+              if(dynaRows.length > 1){
+                for(var i=1; i < dynaRows.length ; i++){
+                    var vendorValue = dynaRows[i].$$('td')[3].getText();
+                    assert.equal(vendorValue,def.es().vendor);
+                }
+              }
+          });
+
+          xit('Vendor Id Without Records', function () {
               impact.openFirstMenu(def.es());
               browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
               browser.pause(1000);
