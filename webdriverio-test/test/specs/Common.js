@@ -36,5 +36,11 @@ module.exports = {
 		browser.element(opts[1]).click('a*='+opts[2]).waitForVisible('//div[@id="subNavBITOP"]', 5000);
     	browser.click('a*='+opts[3]).pause(2000);
     	browser.waitForVisible(opts[4], 5000);
-	}
+	},
+
+	openUrl : function(opts) {
+	    console.log("Opening " + opts.url);
+	    return browser.url(opts.url);
+	},
+
 };

@@ -8,7 +8,7 @@ chai.Should();
 chai.use(chaiAsPromised);
 chaiAsPromised.transferPromiseness = browser.transferPromiseness;
 
-describe('Essential Services', function() {
+describe.skip('Essential Services', function() {
 
 	it('Login', function () {
       impact.openSearchUrl({});
@@ -16,15 +16,15 @@ describe('Essential Services', function() {
       impact.openFirstMenu(def.es());
 	});
 
-  describe('Essential Services Payment Search', function () {
-      xit('Case Number', function () {
+  describe.skip('Essential Services Payment Search', function () {
+      it('Case Number', function () {
           browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
           browser.setValue('[name="caseNumberHash"]',def.es().case);
           browser.setValue('[name="yearstartDateofService"]','2000');
           browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
       });
 
-      xit('Edg Number', function () {
+      it('Edg Number', function () {
           impact.openFirstMenu(def.es());
           browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
           browser.pause(1000);
@@ -53,7 +53,7 @@ describe('Essential Services', function() {
               }
           });
 
-          xit('Vendor Id Without Records', function () {
+          it('Vendor Id Without Records', function () {
               impact.openFirstMenu(def.es());
               browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
               browser.pause(1000);
@@ -66,8 +66,14 @@ describe('Essential Services', function() {
 
   });
 
-  describe('Essential Services', function() {
-    
+  describe('Essential Services Payment', function() {
+      it('Populate Details', function () {
+          impact.openFirstMenu(def.es());
+          browser.click('a*=Essential Services Payment Search').waitForVisible('//div[@class="Heading_1"]', 5000);
+          browser.setValue('[name="caseNumberHash"]',def.es().case);
+          browser.setValue('[name="yearstartDateofService"]','2000');
+          browser.click('#button').waitForVisible('h2*=SEARCH RESULTS', 5000);
+      });
   }); 
 
 });

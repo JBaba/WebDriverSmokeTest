@@ -14,7 +14,8 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        './test/specs/BenefitIssuanceSearch.js',
+        './test/specs/ES.js'
     ],
     //
     // ============
@@ -125,7 +126,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 20000
+        timeout: 200000
     },
     //
     // =====
